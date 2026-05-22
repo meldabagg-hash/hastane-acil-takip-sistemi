@@ -1,0 +1,24 @@
+function kontrolEt(){
+
+    let isim = document.getElementById("isim").value;
+    let sikayet = document.getElementById("sikayet").value;
+    let sonuc = document.getElementById("sonuc");
+
+    if(isim == ""){
+        alert("Lütfen ad soyad giriniz");
+        return;
+    }
+
+    let mesaj = "";
+
+    if(sikayet == "Nefes Darlığı" || sikayet == "Yüksek Ateş"){
+        mesaj = "Sayın " + isim + 
+        ", şikayetiniz acil olarak değerlendirildi. En yakın acile başvurmanız önerilir.";
+    }
+    else{
+        mesaj = "Sayın " + isim +
+        ", şikayetiniz düşük öncelikli olarak değerlendirildi. Online sıranız oluşturuldu. Ortalama bekleme süresi: 25 dakika.";
+    }
+
+    sonuc.innerHTML = mesaj;
+}

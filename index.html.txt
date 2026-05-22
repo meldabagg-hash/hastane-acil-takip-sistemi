@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akıllı Acil Takip Sistemi</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background:#eef2f7;
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:25px;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#003366;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#007bff;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+#sonuc{
+    margin-top:20px;
+    padding:15px;
+    background:#f2f2f2;
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Akıllı Acil Ön Değerlendirme Sistemi</h1>
+
+<input type="text" id="isim" placeholder="Ad Soyad">
+
+<select id="sikayet">
+<option>Grip</option>
+<option>Öksürük</option>
+<option>Boğaz Ağrısı</option>
+<option>Mide Bulantısı</option>
+<option>Yüksek Ateş</option>
+<option>Nefes Darlığı</option>
+</select>
+
+<button onclick="kontrolEt()">Durumu Değerlendir</button>
+
+<div id="sonuc"></div>
+
+</div>
+
+<script>
+
+function kontrolEt(){
+
+    let isim = document.getElementById("isim").value;
+    let sikayet = document.getElementById("sikayet").value;
+    let sonuc = document.getElementById("sonuc");
+
+    if(isim == ""){
+        alert("Lütfen ad soyad giriniz");
+        return;
+    }
+
+    let mesaj = "";
+
+    if(sikayet == "Nefes Darlığı" || sikayet == "Yüksek Ateş"){
+
+        mesaj = "Sayın " + isim +
+        ", şikayetiniz acil olarak değerlendirildi. En yakın acile başvurmanız önerilir.";
+
+    } else {
+
+        mesaj = "Sayın " + isim +
+        ", şikayetiniz düşük öncelikli olarak değerlendirildi. Online sıranız oluşturuldu. Ortalama bekleme süresi: 25 dakika.";
+
+    }
+
+    sonuc.innerHTML = mesaj;
+}
+
+</script>
+
+</body>
+</html>
